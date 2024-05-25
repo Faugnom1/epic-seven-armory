@@ -1,6 +1,6 @@
 Epic Seven Armory
 
-To experience the full functionality of the Epic Seven Armory, including real-time updates during Twitch streams, users should download the dedicated Electron app. This app provides integration with Twitch, enabling streamers to display their unit stats dynamically while broadcasting. To get started, users can visit the GitHub repository where all the source code is hosted. Detailed instructions on how to download, install, and set up the Electron app can be found at the end of this repository's README file. This ensures that users can leverage the full potential of the application while contributing to its development through GitHub.
+To experience the full functionality of the Epic Seven Armory, including real-time updates during Twitch streams, users should download the dedicated Electron app. This app provides integration with Twitch, enabling streamers to display their unit stats dynamically while broadcasting.
 
 Epic Seven Armory  
 https://epic-seven-armory.onrender.com/
@@ -78,3 +78,6 @@ Pytest
 Deployment:  
 Electron  
 Render  
+
+Download and Installation  
+To experience the full functionality of the Epic Seven Armory, including real-time updates during Twitch streams, you can download the latest version of the Electron app from the releases page. Simply navigate to the latest release, download the ZIP file appropriate for your operating system, extract the contents, and run the executable file (e.g., epic-seven-armory.exe). This will install and launch the application, providing you with all the features to manage and analyze your units' stats.
