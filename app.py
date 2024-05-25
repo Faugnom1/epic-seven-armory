@@ -3,6 +3,7 @@ from forms.user_forms import LoginForm, RegistrationForm
 from forms.UpdateUserForm import UpdateUserForm
 from PIL import Image
 import requests
+from datetime import timedelta
 import base64
 from io import BytesIO
 import cloudinary.uploader
@@ -30,6 +31,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_KEY')
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=6)
 openai_api_key = os.getenv('OPEN_AI_KEY')
 openai_api_url = "https://api.openai.com/v1/chat/completions"
 myApiUser = os.getenv('E7_DB_KEY')

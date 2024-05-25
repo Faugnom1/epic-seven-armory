@@ -1,28 +1,21 @@
 function toggleExtension() {
+    let button = document.getElementById('toggle-button');
     let container = document.getElementById('extension-container');
+    let bodywidth = document.body.clientWidth;
     if (container.classList.contains('extension-minimized')) {
         container.classList.remove('extension-minimized');
         container.classList.add('extension-expanded');
-        adjustWidthBasedOnContent();
         document.getElementById('toggle-button').textContent = '←'; 
+        let width = document.getElementById('extension-container').offsetWidth;
+        button.style.removeProperty('left')
+        button.style.right = (bodywidth-width+15) + "px";   
     } else {
         container.classList.remove('extension-expanded');
         container.classList.add('extension-minimized');
-        container.style.width = "25px";
         document.getElementById('toggle-button').textContent = '→'; 
+        button.style.left = 0;
+        button.style.position = absolute;
     }
-}
-
-function adjustWidthBasedOnContent() {
-    let tabs = document.querySelectorAll('.tab');
-    let maxWidth = 400;
-    tabs.forEach(function(tab) {
-        let tabWidth = tab.scrollWidth + 40;
-        if (tabWidth > maxWidth) {
-            maxWidth = tabWidth;
-        }
-    });
-    document.getElementById('extension-container').style.width = maxWidth + "px";
 }
 
 document.addEventListener('DOMContentLoaded', function() {

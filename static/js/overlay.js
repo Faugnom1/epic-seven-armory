@@ -1,21 +1,21 @@
-/**
- * tabs no longer used
- * Opens the specified tab and highlights the tab button.
- * Hides all other tab contents and resets their background color.
- */
-function openTab(evt, tabName) {
-    let i, tabcontent, tabs;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tabs = document.getElementsByClassName("tab");
-    for (i = 0; i < tabs.length; i++) {
-      tabs[i].style.backgroundColor = "";
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.style.backgroundColor = "#ccc";
-  }
+// /**
+//  * tabs no longer used
+//  * Opens the specified tab and highlights the tab button.
+//  * Hides all other tab contents and resets their background color.
+//  */
+// function openTab(evt, tabName) {
+//     let i, tabcontent, tabs;
+//     tabcontent = document.getElementsByClassName("tab-content");
+//     for (i = 0; i < tabcontent.length; i++) {
+//       tabcontent[i].style.display = "none";
+//     }
+//     tabs = document.getElementsByClassName("tab");
+//     for (i = 0; i < tabs.length; i++) {
+//       tabs[i].style.backgroundColor = "";
+//     }
+//     document.getElementById(tabName).style.display = "block";
+//     evt.currentTarget.style.backgroundColor = "#ccc";
+//   }
 
   /**
  * Toggles the extension container between minimized and expanded states.
