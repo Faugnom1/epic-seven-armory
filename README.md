@@ -79,5 +79,5 @@ Deployment:
 Electron  
 Render  
 
-Download and Installation
+Download and Installation  
 To experience the full functionality of the Epic Seven Armory, including real-time updates during Twitch streams, you can download the latest version of the Electron app from the releases page. Simply navigate to the latest release, download the ZIP file appropriate for your operating system, extract the contents, and run the executable file (e.g., epic-seven-armory.exe). This will install and launch the application, providing you with all the features to manage and analyze your units' stats seamlessly.
