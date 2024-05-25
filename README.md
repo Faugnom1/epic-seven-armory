@@ -70,7 +70,8 @@ Pytesseract (for testing and local instalation)
 
 Database:  
 SQLite (for development)  
-PostgreSQL (for production)  
+PostgreSQL (for production)
+Render  
 
 Testing:  
 Pytest
