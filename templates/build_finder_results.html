@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+E7 - Build Results
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if warning %}
+    <div class="alert alert-warning" role="alert">
+        {{ warning }}
+    </div>
+    {% endif %}
+
+    {% if stats %}
+    <h1>Average Build for {{ unit }} in {{ rank|capitalize }}</h1>
+        <div class="stats-section">
+            <ul>
+                <li>Attack: {{ stats.avg_attack|int }}</li>
+                <li>Defense: {{ stats.avg_defense|int }}</li>
+                <li>Health: {{ stats.avg_health|int }}</li>
+                <li>Speed: {{ stats.avg_speed|int }}</li>
+                <li>Critical Hit Chance: {{ stats.avg_crit_chance }}%</li>
+                <li>Critical Hit Damage: {{ stats.avg_crit_damage }}%</li>
+                <li>Effectiveness: {{ stats.avg_effectiveness }}%</li>
+                <li>Effect Resistance: {{ stats.avg_effect_resistance }}%</li>
+                <li>Set 1: {{ stats.most_common_set1 }}</li>
+                <li>Set 2: {{ stats.most_common_set2 }}</li>
+                <li>Set 3: {{ stats.most_common_set3 }}</li>
+            </ul>
+        </div>
+        <a href="{{ url_for('display_unit', unit_name=unit) }}" class="btn btn-info">Unit Look Up for {{ unit }}</a>
+        {% endif %}
+    <a href="{{ url_for('build_finder') }}" class="btn btn-info">Back to Search</a>
+
+</div>
+{% endblock %}

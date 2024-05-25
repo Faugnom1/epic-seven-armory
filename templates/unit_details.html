@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+Build Details
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4">{{ unit.name }}</h1>
+    <img src="{{ unit.image }}" alt="{{ unit.name }} Image" class="img-fluid mb-3">
+    <div class="section-box">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Element:</strong> {{ unit.element }}</p>
+                <p><strong>Class:</strong> {{ unit.class }}</p>
+                <p><strong>Zodiac:</strong> {{ unit.zodiac }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-box">
+        <h2 class="section-title">Base Stats</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Attack:</strong> {{ unit.stats.attack }}</li>
+            <li class="list-group-item"><strong>Health:</strong> {{ unit.stats.health }}</li>
+            <li class="list-group-item"><strong>Defense:</strong> {{ unit.stats.defense }}</li>
+            <li class="list-group-item"><strong>Speed:</strong> {{ unit.stats.speed }}</li>
+        </ul>
+    </div>
+    
+    <div class="section-box">
+        <h2 class="section-title">Memory Imprints</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="h6">Imprint Release</h3>
+                <ul class="list-group list-group-flush">
+                    {% for key, value in unit.memory_imprints.imprint_release.items() %}
+                    <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h6">Imprint Concentration</h3>
+                <ul class="list-group list-group-flush">
+                    {% for key, value in unit.memory_imprints.imprint_concentration.items() %}
+                    <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-box">
+        <h2 class="section-title">Skills</h2>
+        <ul class="list-group list-group-flush">
+            {% for skill in unit.skills %}
+            <li class="list-group-item">
+                <strong>{{ skill.name }}</strong>: {{ skill.description }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

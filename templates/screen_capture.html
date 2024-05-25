@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+E7 - Screen Capture
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Screen Capture</h1>
+    <h2>Please make sure Bluestacks 5 is in full screen mode, with no advertisements, and sidebar OPEN.</h2>
+    <h3>To save each unit, navigate to the hero screen, use a plain background, press Start and tab back to E7. The unit will be saved each time the application sees a new unit name.</h3>
+    <button onclick="startCapture()" class="btn btn-success">Start</button>
+    <button onclick="stopCapture()" class="btn btn-danger">Stop</button>
+</div>
+{% endblock %}

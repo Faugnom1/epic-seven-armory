@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2vh;
+  text-align: center;
+  margin: 0;
+  padding: 1vh 0;
+}
+
+#extension-container {
+    position: fixed;
+    left: 0;
+    top: 8%; 
+    bottom: 8%; 
+    width: 25px; 
+    height: calc(90% - 20px);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.extension-minimized .overlay {
+    display: none;
+}
+
+#toggle-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.extension-expanded {
+    max-width: 600px !important;
+    width: auto;
+}
+
+.extension-expanded .overlay {
+    display: block;
+}
+
+.extension-expanded #toggle-button {
+    content: '←';
+}
+
+.tabs {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: inherit;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 10px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .tab:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .tab-content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+  #unit-selector {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    max-height: 300px;
+    overflow-y: auto; 
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px; 
+}
+
+.button-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 2.5vh;
+}

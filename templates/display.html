@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+E7
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Extracted Stats</h1>
+    {% for result in results %}
+        <div class="stats-section">
+            <h2>Stats for Image</h2>
+            <ul>
+                <li>
+                    Unit Name: {{ result['stats'].unit }}
+                    {% if result.unit_image_url %}
+                        <img src="{{ result.unit_image_url }}" alt="{{ result['stats'].unit }} image" style="width: 50px; height: 50px; margin-left: 10px;">
+                    {% endif %}
+                </li>
+                <li>CP: {{ result['stats'].cp }}</li>
+                <li>Imprint: {{ result['stats'].imprint }}</li>
+                <li>Attack: {{ result['stats'].attack }}</li>
+                <li>Defense: {{ result['stats'].defense }}</li>
+                <li>Health: {{ result['stats'].health }}</li>
+                <li>Speed: {{ result['stats'].speed }}</li>
+                <li>Critical Hit Chance: {{ result['stats'].critical_hit_chance }}</li>
+                <li>Critical Hit Damage: {{ result['stats'].critical_hit_damage }}</li>
+                <li>Effectiveness: {{ result['stats'].effectiveness }}</li>
+                <li>Effect Resistance: {{ result['stats'].effect_resistance }}</li>
+                <li>Set 1: {{ result['stats'].set1 }}</li>
+                <li>Set 2: {{ result['stats'].set2 }}</li>
+                <li>Set 3: {{ result['stats'].set3 }}</li>
+            </ul>
+        </div>
+    {% endfor %}
+    <div class="text-center mt-4">
+        <a href="{{ url_for('upload_file') }}" class="btn btn-primary">Upload Another Image</a>
+    </div>
+</div>
+{% endblock %}

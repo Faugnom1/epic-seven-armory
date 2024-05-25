@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Epic Seven Stream Overlay</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/overlay.css') }}">
+<script src="{{ url_for('static', filename='js/overlay.js') }}"></script>
+</head>
+<body>
+  <div id="extension-container" class="extension-minimized">
+    <div id="toggle-button" onclick="toggleExtension()">→</div>
+    <div class="overlay">
+    </div>
+</div>
+<h3>Please use the checkboxes to select the units you want to display on stream. Click the "Twitch Overlay" tab above to send your units to Twitch. Once the new window is open, you can continue to change units at will. Click the -> arrow to open the overlay.</h3>
+<div id="unit-selector">
+    Your Units:
+  {% for unit in units %}
+  <div class="checkbox">
+      <input type="checkbox" id="unit-{{ unit.id }}" name="unit" value="{{ unit.unit }}" onchange="checkCheckboxLimit(event)">
+      <label for="unit-{{ unit.id }}">{{ unit.unit }}</label>
+  </div>
+  {% endfor %}
+</div>
+<div class="button-container">
+  <a href="{{ url_for('home') }}" class="btn btn-primary">Home</a>
+</div>
+</body>
+
+</html>

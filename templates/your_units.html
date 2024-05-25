@@ -1,0 +1,62 @@
+<!doctype html>
+{% extends "base.html" %}
+
+{% block title %}
+Your Units
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+        {% if unit %}
+        <h2>Your Selected Unit</h2>
+        <div class="stats-section">
+            <ul>
+                <li>
+                    Unit Name: {{ unit.unit }}
+                    {% if unit_image_url %}
+                        <img src="{{ unit_image_url }}" alt="{{ unit.unit }} image" style="width: 50px; height: 50px; margin-left: 10px;">
+                    {% endif %}
+                </li>
+                <li>Attack: {{ unit.attack }}</li>
+                <li>Defense: {{ unit.defense }}</li>
+                <li>Health: {{ unit.health }}</li>
+                <li>Speed: {{ unit.speed }}</li>
+                <li>Critical Hit Chance: {{ unit.critical_hit_chance }}</li>
+                <li>Critical Hit Damage: {{ unit.critical_hit_damage }}</li>
+                <li>Effectiveness: {{ unit.effectiveness }}</li>
+                <li>Effect Resistance: {{ unit.effect_resistance }}</li>
+                <li>Set 1: {{ unit.set1 }}</li>
+                <li>Set 2: {{ unit.set2 }}</li>
+                <li>Set 3: {{ unit.set3 }}</li>
+                <li>RTA Rank: {{ unit.user_rank|capitalize }}</li>
+            </ul>
+        </div>
+        <a href="{{ url_for('display_unit', unit_name=unit.unit) }}" class="btn btn-info">Unit Look Up for {{ unit.unit }}</a>
+        <br>
+        {% endif %}
+        <h2>Your Units</h2>
+        <form action="{{ url_for('your_units') }}" method="post">
+            <select name="unit" class="form-control mt-3">
+                {% for unit in units %}
+                <option value="{{ unit.unit }}">{{ unit.unit }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-info mt-3">View Stats</button>
+        </form>
+        <br>
+        <h2>Delete a Unit</h2>
+        <form action="{{ url_for('delete_unit') }}" method="post">
+        <div class="form-group">
+            <label for="unit_to_delete">Select Unit to Delete</label>
+            <select name="unit_to_delete" class="form-control mt-3">
+                {% for unit in units %}
+                <option value="{{ unit.id }}">{{ unit.unit }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Delete Unit</button>
+    </form>
+    </div>
+</body>
+{% endblock %}

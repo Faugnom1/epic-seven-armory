@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}E7{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand">
+        <a class="navbar-brand" href="/">E7 Armory
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="/upload">Upload Image</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="/screen_capture">Screen Capture</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="/query">Query Unit Stats</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="/unit_lookup">Unit Look Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/build_finder">Build Finder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/your_units">Your Units</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile">User Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/overlay">Twitch Overlay Setup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="/signup">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+<div>
+    {% block content %}
+
+    {% endblock %}
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul class="flashes">
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endwith %}
+</body>
+</html>

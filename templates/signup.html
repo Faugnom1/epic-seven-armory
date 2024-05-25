@@ -1,0 +1,45 @@
+<!doctype html>
+{% extends "base.html" %}
+
+{% block title %}
+E7 - Home
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container mt-5">
+        <h2>Sign Up</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-label") }}
+                {{ form.confirm_password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.epic_seven_account.label(class="form-label") }}
+                {{ form.epic_seven_account(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.streamer_name.label(class="form-label") }}
+                {{ form.streamer_name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.rta_rank.label(class="form-label") }}
+                {{ form.rta_rank(class="form-control") }}
+            </div>
+            <div>
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock %}
+

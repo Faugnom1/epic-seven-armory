@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+User Profile
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>User Profile</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.username.label(class="form-label") }} 
+            {{ form.username(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.epic_seven_account.label(class="form-label") }} 
+            {{ form.epic_seven_account(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.streamer_name.label(class="form-label") }} 
+            {{ form.streamer_name(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.rta_rank.label(class="form-label") }} 
+            {{ form.rta_rank(class="form-control") }}
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

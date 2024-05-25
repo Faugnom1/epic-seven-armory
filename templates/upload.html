@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Upload an Image
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Upload an Image</h1>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+    <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" onsubmit=showOverlay()>
+        <div class="form-group">
+            <label for="file">Upload Local Images</label>
+            <input type="file" name="file" multiple required class="form-control">
+        </div>
+        <input type="submit" value="Upload Locally"  id ="uploadButton" class="btn btn-primary mt-3">
+    </form>
+
+    <hr>
+
+    <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" onsubmit=showOverlay()>
+        <div class="form-group">
+            <label for="cloudinaryImage">Upload Images to Cloudinary</label>
+            <input type="file" class="form-control" id="cloudinaryImage" name="cloudinaryImage" multiple>
+        </div>
+        <input type="submit" value="Upload to Cloudinary" id ="uploadButton" class="btn btn-primary mt-3">
+    </form>
+</div>
+<div id="overlay">
+    <div id="overlayText">Please wait...</div>
+</div>
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}

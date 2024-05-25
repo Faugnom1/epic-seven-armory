@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+Build Finder
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Build Finder</h1>
+    <p>Select a unit and rank to find average stats.</p>
+    <form action="{{ url_for('build_finder') }}" method="post" class="form">
+        <div class="form-group">
+            <label for="unit">Unit:</label>
+            <select name="unit" id="unit" class="form-control">
+                {% for name in unit %}
+                <option value="{{ name }}">{{ name }}</option>  
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="rank">Rank:</label>
+            <select name="rank" id="rank" class="form-control">
+                {% for rank in ranks %}
+                <option value="{{ rank }}">{{ rank }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn">Find Builds</button>
+    </form>
+</div>
+{% endblock %}

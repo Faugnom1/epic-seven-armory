@@ -1,0 +1,25 @@
+<!doctype html>
+{% extends "base.html" %}
+
+{% block title %}
+E7 - Home
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container mt-5">
+        <h2>Log In</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label }} {{ form.username() }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }} {{ form.password() }}
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</body>
+{% endblock %}
