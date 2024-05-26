@@ -66,7 +66,7 @@ Electron
 Backend:  
 Python  
 Flask  
-Pytesseract (for testing and local instalation)
+Pytesseract (for testing and local installation)
 
 Database:  
 SQLite (for development)  
