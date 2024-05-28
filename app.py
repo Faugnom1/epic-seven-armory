@@ -528,11 +528,11 @@ def update_selected_units():
 @jwt_required()
 def get_selected_units_data():
     #Electron page calls the db for the selected units 
-    current_user_id = get_jwt_identity()
-    user = Users.query.get(current_user_id)
+    # current_user_id = get_jwt_identity()
+    # user = Users.query.get(current_user_id)
     units_data = []
     
-    selected_units = SelectedUnit.query.filter_by(user_id=user).first()
+    selected_units = SelectedUnit.query.filter_by(user_id=1).first()
     
     if not selected_units:
         return jsonify({'error': 'No selected units found'}), 404
