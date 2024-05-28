@@ -31,7 +31,8 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_KEY')
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=6)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = False
+# app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=6)
 openai_api_key = os.getenv('OPEN_AI_KEY')
 openai_api_url = "https://api.openai.com/v1/chat/completions"
 myApiUser = os.getenv('E7_DB_KEY')
@@ -529,9 +530,10 @@ def get_selected_units_data():
     #Electron page calls the db for the selected units 
     current_user_id = get_jwt_identity()
     user = Users.query.get(current_user_id)
+    user = "faugnom1"
     units_data = []
     
-    selected_units = SelectedUnit.query.filter_by(user_id=user.id).first()
+    selected_units = SelectedUnit.query.filter_by(user_id=user).first()
     
     if not selected_units:
         return jsonify({'error': 'No selected units found'}), 404
@@ -560,6 +562,16 @@ def get_selected_units_data():
 
     print('Units data:', units_data)
     return jsonify(units_data)
+
+@app.route('/generate_token', methods=['GET'])
+def generate_token():
+    # Specify the identity of the user for whom you want to generate the token
+    user_id = 'faugnom1'
+    
+    # Generate the token
+    token = create_access_token(identity=user_id)
+    print(token)
+    return jsonify(token=token)
 
 if __name__ == '__main__':
     context = ('localhost.pem', 'localhost-key.pem')

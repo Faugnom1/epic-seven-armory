@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     async function fetchAndUpdateUnitsData() {
         const token = localStorage.getItem('access_token');
 
-        if (!token) {
-            window.location.href = 'login.html'; 
-            return;
-        }
+        // if (!token) {
+        //     window.location.href = 'login.html'; 
+        //     return;
+        // }
 
         try {
             const response = await fetch('https://epic-seven-armory.onrender.com/api/get_selected_units_data', {
