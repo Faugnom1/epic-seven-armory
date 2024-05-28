@@ -483,7 +483,10 @@ def get_unit_data():
             'critical_hit_chance': unit.critical_hit_chance,
             'critical_hit_damage': unit.critical_hit_damage,
             'effectiveness': unit.effectiveness,
-            'effect_resistance': unit.effect_resistance
+            'effect_resistance': unit.effect_resistance,
+            'set1': unit.set1,
+            'set2': unit.set2,
+            'set3': unit.set3
         }
         for unit in units
     ]
@@ -554,7 +557,10 @@ def get_selected_units_data():
                 'critical_hit_chance': unit_obj.critical_hit_chance,
                 'critical_hit_damage': unit_obj.critical_hit_damage,
                 'effectiveness': unit_obj.effectiveness,
-                'effect_resistance': unit_obj.effect_resistance
+                'effect_resistance': unit_obj.effect_resistance,
+                'set1': unit_obj.set1,
+                'set2': unit_obj.set2,
+                'set3': unit_obj.set3
             })
         else:
             print(f'Unit with id {unit_id} not found in the database')
