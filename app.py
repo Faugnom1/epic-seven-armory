@@ -525,7 +525,7 @@ def update_selected_units():
     return jsonify({'status': 'success'})
 
 @app.route('/api/get_selected_units_data', methods=['GET'])
-# @jwt_required()
+@jwt_required()
 def get_selected_units_data():
     #Electron page calls the db for the selected units 
     current_user_id = get_jwt_identity()
