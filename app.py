@@ -532,7 +532,7 @@ def get_selected_units_data():
     user = "faugnom1"
     units_data = []
     
-    selected_units = SelectedUnit.query.filter_by(user_id=user.id).first()
+    selected_units = SelectedUnit.query.filter_by(user_id=user).first()
     
     if not selected_units:
         return jsonify({'error': 'No selected units found'}), 404
