@@ -1,0 +1,70 @@
+.sidebar {
+    width: 250px;
+    height: 66vh;
+    transition: width 0.1s;
+    overflow: hidden;
+    position: fixed;
+    top: 15%;
+    background-image: url("../assets/bg00.jpg");
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .sidebar.closed {
+    width: 25px;
+    opacity: 0.75;
+  }
+  
+  .sidebar .toggle-button {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 41px;
+    border: 1px solid #aaa;
+  }
+  
+  .sidebar .tabs {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .sidebar .tabs .tab-button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px; 
+  }
+
+  .tab-button.active {
+    border: 2px solid yellow !important;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    overflow: hidden; /* Hide the overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) to the overflow text */
+    max-width: 100%; /* Ensure the element does not exceed its container width */
+  }
+
+  
+  .sidebar .content {
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+  }
+  
