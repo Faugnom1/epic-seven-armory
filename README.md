@@ -61,7 +61,7 @@ Internal API
 Technology Stack
 
 Frontend:  
-React
+React,
 HTML, CSS (Bootstrap), JavaScript  
 Python  
 Electron
