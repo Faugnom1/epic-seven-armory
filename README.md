@@ -28,6 +28,9 @@ View Unit Details: Users can look up detailed information about their units, inc
 Find Builds: Users search for builds based on their units and specific ranks, viewing average stats and the most common builds.  
 Stream Overlay: Streamers can enable the overlay component to show real-time unit stats during their streams.
 
+Unit Stat Extraction Results:
+![DesktopApp](https://github.com/Faugnom1/epic-seven-armory/blob/master/Desktop%20App.png).
+
 Twitch Extension:
 
 ![Demo Animation](https://github.com/Faugnom1/epic-seven-armory/blob/master/Sidebar.gif)
