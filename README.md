@@ -1,4 +1,4 @@
-Epic Seven Armory
+# <center> Epic Seven Armory </center>
 
 To experience the full functionality of the Epic Seven Armory, including real-time updates during Twitch streams, users should download the dedicated Electron app. This app provides integration with Twitch, enabling streamers to display their unit stats dynamically while broadcasting.
 
