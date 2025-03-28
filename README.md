@@ -33,7 +33,6 @@ Twitch Extension:
 ![Demo Animation](https://github.com/Faugnom1/epic-seven-armory/blob/master/Sidebar.gif)
 
 Enable the extension at: https://dashboard.twitch.tv/extensions/3qerc4w2tf5cv28ka8darpwb8qqerw-0.0.1  
-![Alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/twitch.png)
 
 
 Api Details
