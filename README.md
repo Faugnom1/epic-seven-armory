@@ -70,8 +70,7 @@ Flask
 Pytesseract (for testing and local installation)
 
 Database:  
-SQLite (for development)  
-PostgreSQL (for production)  
+MongoDB
 
 Testing:  
 Pytest
