@@ -41,7 +41,7 @@ for method in methods:
     cv2.destroyAllWindows()
 
     if method == cv2.TM_SQDIFF_NORMED:
-        threshold = 0.0  # Example threshold, adjust based on your application's needs
+        threshold = 0.0 
         if match_value:
             print(f"Match found for {unit_name}")
 
