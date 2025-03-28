@@ -56,7 +56,7 @@ for filename in os.listdir(hero_images_dir):
 
             # Check if the method is cv2.TM_SQDIFF_NORMED and if the match is below a certain threshold
             if method == cv2.TM_SQDIFF_NORMED:
-                threshold = 0.08  # Example threshold, adjust based on your application's needs
+                threshold = 0.08
                 if match_value < threshold:
                     print(f"Match found for {unit_name} using {method} with a value of {match_value:.4f}")
                 else:
