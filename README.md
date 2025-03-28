@@ -43,15 +43,14 @@ Enable the extension at: https://dashboard.twitch.tv/extensions/3qerc4w2tf5cv28k
 Technology Stack
 
 Frontend:  
-React,
-HTML, CSS (Bootstrap), JavaScript  
-Python  
+React,  
+Python,  
 Electron
 
 Backend:  
-Python  
-Flask  
-Pytesseract (for testing and local installation)
+Python,  
+Flask,  
+Pytesseract
 
 Database:  
 MongoDB
