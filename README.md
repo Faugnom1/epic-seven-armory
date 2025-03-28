@@ -32,6 +32,9 @@ Twitch Extension:
 
 ![Demo Animation](https://github.com/Faugnom1/epic-seven-armory/blob/master/Sidebar.gif)
 
+![InGame](https://github.com/Faugnom1/epic-seven-armory/blob/master/inGameUI.png).
+
+
 Enable the extension at: https://dashboard.twitch.tv/extensions/3qerc4w2tf5cv28ka8darpwb8qqerw-0.0.1  
 
 
