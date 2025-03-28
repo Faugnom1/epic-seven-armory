@@ -37,25 +37,6 @@ Twitch Extension:
 
 Enable the extension at: https://dashboard.twitch.tv/extensions/3qerc4w2tf5cv28ka8darpwb8qqerw-0.0.1  
 
-
-Api Details
-
-External API
-ChatGPT
-https://api.openai.com/v1/chat/completions
-
-Epic7db
-https://epic7db.com/api/heroes/{unit_name.lower()}/{myApiUser}
-
-Smilegate
-https://static.smilegatemegaport.com/gameRecord/epic7/epic7_hero.json
-
-Internal API
-
-/get_unit_data: Fetches all unit data from the database.  
-/update_selected_units: Updates the selected units based on user input.  
-/upload_stats_image: Handles the upload and analysis of unit stats images.  
-
 Technology Stack
 
 Frontend:  
