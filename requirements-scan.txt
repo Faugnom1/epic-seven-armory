@@ -1,0 +1,4 @@
+pygetwindow
+mss
+pillow
+pywin32; platform_system=="Windows"
