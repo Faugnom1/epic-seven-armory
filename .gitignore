@@ -29,3 +29,6 @@ config/cache/
 # Secrets (if you use them)
 .env
 .env.*
+
+.google_oauth.json
+google_oauth.json

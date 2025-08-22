@@ -35,6 +35,8 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 tesseract_path = os.path.join(script_dir, 'Pytesseract', 'tesseract.exe')
 pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
+MONGO_URI = os.getenv("MONGO_URI")
+
 bcrypt = Bcrypt(app)
 
 # ------------------------
@@ -95,7 +97,7 @@ app.logger.setLevel(logging.INFO)
 register_scan_blueprint(app)
 
 # MongoDB connection
-uri = "mongodb+srv://michaelfaugnodev:Nt9KZ0ELp0mVbNWb@epic-seven-armory-proje.idpnatp.mongodb.net/?retryWrites=true&w=majority&appName=Epic-Seven-Armory-Project"
+uri = MONGO_URI
 client = MongoClient(uri, server_api=ServerApi('1'))
 atexit.register(client.close)
 
