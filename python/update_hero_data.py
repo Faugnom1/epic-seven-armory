@@ -4,6 +4,10 @@ import os
 import time
 from PIL import Image
 import sys
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 # Constants
 HERO_LIST_URL = "https://static.smilegatemegaport.com/gameRecord/epic7/epic7_hero.json"

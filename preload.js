@@ -1,14 +1,6 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("api", {
-  // Monitor controls (existing)
-  toggleMonitor: (enabled) => ipcRenderer.invoke("monitor-toggle", { enabled }),
-  restartMonitor: () => ipcRenderer.send("restart-monitor"),
-  onMonitorStatus: (handler) => {
-    const listener = (_event, data) => handler(data);
-    ipcRenderer.on("monitor-status", listener);
-    return () => ipcRenderer.removeListener("monitor-status", listener);
-  },
   onPythonOutput: (handler) => {
     const listener = (_event, data) => handler(data);
     ipcRenderer.on("python-output", listener);

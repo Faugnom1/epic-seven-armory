@@ -138,99 +138,6 @@ function updateHeroData() {
   });
 }
 
-// ---------- Monitor controls (unchanged behavior) ----------
-function startPythonScript() {
-  if (pythonProcess) return;
-  const scriptPath = path.join(__dirname, "python", "monitor.py");
-  console.log("Starting Python script:", scriptPath);
-
-  pythonProcess = spawn("python", [scriptPath]);
-
-  pythonProcess.stdout.on("data", (data) => {
-    console.log(`Python script output: ${data}`);
-    if (mainWindow && !mainWindow.isDestroyed())
-      mainWindow.webContents.send("python-output", data.toString());
-  });
-
-  pythonProcess.stderr.on("data", (data) => {
-    console.error(`Python script error: ${data}`);
-    if (mainWindow && !mainWindow.isDestroyed())
-      mainWindow.webContents.send("python-error", data.toString());
-  });
-
-  pythonProcess.on("close", (code) => {
-    console.log(`Python script exited with code ${code}`);
-    pythonProcess = null;
-    monitorEnabled = false;
-    writeMonitorStatus({ enabled: false, found: false, bbox: null });
-    if (mainWindow && !mainWindow.isDestroyed())
-      mainWindow.webContents.send("python-exit", code);
-  });
-
-  monitorEnabled = true;
-  writeMonitorStatus({ enabled: true, found: false, bbox: null });
-}
-
-function stopPythonScript() {
-  if (pythonProcess) {
-    try {
-      pythonProcess.kill();
-    } catch (e) {
-      console.error("Error killing python process:", e);
-    }
-    pythonProcess = null;
-  }
-  monitorEnabled = false;
-  writeMonitorStatus({ enabled: false, found: false, bbox: null });
-}
-
-function writeMonitorStatus(status) {
-  const projectPath = path.join("C:", "Projects", "EpicSevenArmory");
-  const statusPath = path.join(projectPath, "monitor_status.json");
-  try {
-    if (!fs.existsSync(projectPath))
-      fs.mkdirSync(projectPath, { recursive: true });
-    fs.writeFileSync(statusPath, JSON.stringify(status, null, 2), "utf8");
-  } catch (err) {
-    console.error("Error writing monitor_status.json:", err);
-  }
-}
-
-function checkMonitorStatus() {
-  const projectPath = path.join("C:", "Projects", "EpicSevenArmory");
-  const statusPath = path.join(projectPath, "monitor_status.json");
-
-  if (!fs.existsSync(projectPath))
-    fs.mkdirSync(projectPath, { recursive: true });
-
-  fs.readFile(statusPath, "utf8", (err, data) => {
-    if (mainWindow && !mainWindow.isDestroyed()) {
-      if (err) {
-        mainWindow.webContents.send("monitor-status", { status: "unknown" });
-      } else {
-        try {
-          if (!data.trim()) {
-            mainWindow.webContents.send("monitor-status", {
-              status: "unknown",
-              message: "Status file is empty",
-            });
-            return;
-          }
-          const status = JSON.parse(data);
-          mainWindow.webContents.send("monitor-status", status);
-        } catch (parseErr) {
-          console.error("Error parsing status file:", parseErr);
-          console.log("Raw file content:", data);
-          mainWindow.webContents.send("monitor-status", {
-            status: "error",
-            message: "Invalid status data",
-          });
-        }
-      }
-    }
-  });
-}
-
 // ---------- App lifecycle ----------
 app.whenReady().then(createWindow);
 app.on("window-all-closed", () => {
@@ -242,17 +149,6 @@ app.on("activate", () => {
 app.on("will-quit", () => {
   stopPythonScript();
   if (statusCheckInterval) clearInterval(statusCheckInterval);
-});
-
-// ---------- IPC ----------
-ipcMain.on("restart-monitor", () => {
-  stopPythonScript();
-  startPythonScript();
-});
-ipcMain.handle("monitor-toggle", async (_event, { enabled }) => {
-  if (enabled) startPythonScript();
-  else stopPythonScript();
-  return { enabled: enabled && !!pythonProcess };
 });
 
 // Google OAuth — load client from JSON (no env vars)

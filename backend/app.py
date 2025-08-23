@@ -4,7 +4,7 @@ from PIL import Image
 import requests
 from datetime import timedelta, datetime
 from werkzeug.utils import secure_filename
-from flask_cors import CORS  # keep if you use it elsewhere
+from flask_cors import CORS 
 import json
 from fuzzywuzzy import fuzz
 import pytesseract
@@ -18,10 +18,6 @@ from bson.objectid import ObjectId
 from dotenv import load_dotenv
 from pymongo import ReturnDocument
 from pathlib import Path
-
-# >>> added: scan blueprint registration
-from scripts.scan_manager import register_blueprint as register_scan_blueprint
-# <<< added
 
 load_dotenv()
 
@@ -93,9 +89,6 @@ handler.setLevel(logging.INFO)
 app.logger.addHandler(handler)
 app.logger.setLevel(logging.INFO)
 
-# >>> added: register scan endpoints (provides /scan/status and /scan/toggle)
-register_scan_blueprint(app)
-
 # MongoDB connection
 uri = MONGO_URI
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -110,18 +103,14 @@ image_stats_collection = db['ImageStats']
 from scripts.google_auth_native import register_google_auth_blueprint
 register_google_auth_blueprint(app, users_collection=users_collection, db=db)
 
-# Legacy/profile blueprints
-from scripts.profile_read_legacy import register_profile_read_legacy
 from scripts.hero_images import register_hero_images
-from scripts.update_profile_legacy import register_update_profile_legacy
 
 try:
     from bson import ObjectId as BsonObjectId
 except Exception:
     BsonObjectId = None
-register_profile_read_legacy(app, users_collection=users_collection, object_id_cls=BsonObjectId)
+
 register_hero_images(app)
-register_update_profile_legacy(app, users_collection=users_collection, object_id_cls=BsonObjectId)
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
@@ -673,143 +662,6 @@ def process_json(file_path, username, rta_rank):
         results.append(stats)
 
     return results
-
-# ------------------------
-# Scanning Routes (existing)
-# ------------------------
-@app.route("/ingest_unit_ocr", methods=["POST"])
-def ingest_unit_ocr():
-    payload = request.get_json(force=True, silent=True) or {}
-    username = request.headers.get("username") or request.args.get("username")
-    if not username:
-        return jsonify({"error": "missing username"}), 400
-
-    hero_name = (payload.get("hero_name") or "").strip()
-    cp_in = payload.get("cp")
-    stats_in = payload.get("stats") or {}
-    sig = payload.get("sig")
-    if not hero_name or not sig:
-        return jsonify({"error": "missing hero_name or sig"}), 400
-
-    def _fmt_int(n):   return f"{int(n):,}" if n is not None else ""
-    def _fmt_pct(p):   return f"{float(p):.1f}%" if p is not None else ""
-
-    nice_name = hero_name
-    unit_lower = nice_name.lower()
-
-    doc = {
-        "unit": nice_name,
-        "unit_lower": unit_lower,
-        "cp": _fmt_int(cp_in),
-        "imprint": "Locked",
-        "attack": _fmt_int(stats_in.get("attack")),
-        "defense": _fmt_int(stats_in.get("defense")),
-        "health": _fmt_int(stats_in.get("health")),
-        "speed": str(stats_in.get("speed") or ""),
-        "critical_hit_chance": _fmt_pct(stats_in.get("crit_chance")),
-        "critical_hit_damage": _fmt_pct(stats_in.get("crit_damage")),
-        "effectiveness": _fmt_pct(stats_in.get("effectiveness")),
-        "effect_resistance": _fmt_pct(stats_in.get("effect_resistance")),
-        "set1": "No set effect",
-        "set2": "No set effect",
-        "set3": "No set effect",
-        "uploaded_by": username,
-        "user_rank": "",
-        "source": "ocr_auto",
-        "sig": sig,
-        "updated_at": datetime.utcnow(),
-    }
-
-    units = db["units"]
-    existing = units.find_one({"username": username, "unit_lower": unit_lower})
-    if existing:
-        if existing.get("sig") == sig:
-            event = "duplicate"
-            updated = existing
-        else:
-            event = "updated"
-            updated = units.find_one_and_update(
-                {"_id": existing["_id"]},
-                {"$set": doc},
-                return_document=ReturnDocument.AFTER
-            )
-    else:
-        event = "added"
-        doc["created_at"] = datetime.utcnow()
-        doc["username"] = username
-        inserted_id = units.insert_one(doc).inserted_id
-        updated = units.find_one({"_id": inserted_id})
-
-    return jsonify({"ok": True, "unit_id": str(updated.get("_id")), "event": event})
-
-@app.route("/scan_event", methods=["POST"])
-def scan_event():
-    payload = request.get_json(force=True, silent=True) or {}
-    username = request.headers.get("username") or request.args.get("username")
-    if not username:
-        return jsonify({"error": "missing username"}), 400
-
-    event = {
-        "username": username,
-        "event_type": payload.get("event_type") or "info",
-        "hero_name": payload.get("hero_name") or "",
-        "cp": payload.get("cp"),
-        "sig": payload.get("sig") or "",
-        "message": payload.get("message") or "",
-        "created_at": datetime.utcnow(),
-        "expires_at": datetime.utcnow() + timedelta(days=14),
-    }
-    db["scan_events"].insert_one(event)
-    return jsonify({"ok": True})
-
-@app.route("/scan_events", methods=["GET"])
-def scan_events():
-    username = request.headers.get("username") or request.args.get("username")
-    if not username:
-        return jsonify({"error": "missing username"}), 400
-    limit = min(int(request.args.get("limit", 100)), 500)
-
-    cur = db["scan_events"].find({"username": username}).sort("created_at", -1).limit(limit)
-    rows = [{
-        "ts": doc.get("created_at").isoformat() + "Z",
-        "event_type": doc.get("event_type"),
-        "hero_name": doc.get("hero_name"),
-        "cp": doc.get("cp"),
-        "sig": doc.get("sig"),
-        "message": doc.get("message")
-    } for doc in cur]
-
-    return jsonify({"ok": True, "events": rows})
-
-@app.route("/monitor_status", methods=["GET"])
-def monitor_status():
-    status_dir  = Path(os.environ.get("E7_STATUS_DIR", r"C:\Projects\EpicSevenArmory"))
-    status_path = status_dir / "monitor_status.json"
-    if status_path.exists():
-        try:
-            return jsonify(json.loads(status_path.read_text(encoding="utf-8")))
-        except Exception:
-            pass
-    return jsonify({})
-
-@app.route("/scanner", methods=["POST"])
-def scanner_toggle():
-    data = request.get_json(force=True, silent=True) or {}
-    enabled  = bool(data.get("enabled"))
-    username = request.headers.get("username") or data.get("username") or request.args.get("username")
-
-    if username:
-        import hero_scanner
-        hero_scanner.USERNAME_VALUE = username
-
-    if enabled:
-        import hero_scanner
-        hero_scanner.start_scanner()
-    else:
-        import hero_scanner
-        hero_scanner.stop_scanner()
-
-    return jsonify({"enabled": enabled})
 
 if __name__ == '__main__':
     # Serve HTTP locally for development
