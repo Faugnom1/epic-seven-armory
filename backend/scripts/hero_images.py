@@ -3,6 +3,9 @@ import re, os
 from pathlib import Path
 from typing import Optional, List, Tuple
 from flask import Blueprint, send_from_directory, request, jsonify, current_app
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Optional dependency for fallback
 try:
@@ -13,7 +16,7 @@ except Exception:  # pragma: no cover
 HERO_BP = Blueprint("hero_images", __name__)
 
 # ---------- config ----------
-E7DB_SUFFIX = "mikeyfogs"  # matches your previous API usage
+E7DB_SUFFIX = os.getenv('E7DB_SUFFIX') # matches your previous API usage
 # You can disable network fallback by setting app.config["HERO_IMAGES_FALLBACK"]=False
 # You can override images dir with app.config["HERO_IMAGES_DIR"] = ".../hero_images"
 # ----------------------------
