@@ -22,7 +22,7 @@ Search: use Unit Lookup to filter by name as see their element, class, rarity, s
 
 Set up your twitch extension: Add Epic Seven Armory to your twitch extensions and link your account to display your units on stream.
 
-[IMAGE: docs/images/upload-flow.png]
+![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/Unit%20Lookup.png)
 
 ### Draft Detection 
 
