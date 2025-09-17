@@ -4,7 +4,7 @@ A desktop companion for Epic Seven to store your units and display them on your 
 
 [IMAGE: docs/images/banner.png]
 
-## WHAT YOU CAN DO
+### WHAT YOU CAN DO
 
 • Unit storage — keep a personal roster of your heroes with portraits and stats.
 • Upload & auto-read — drag a screenshot in; the app reads text and numbers with OCR (you can edit anything).
@@ -14,11 +14,7 @@ A desktop companion for Epic Seven to store your units and display them on your 
 
 [IMAGE: docs/images/roster-grid.png]
 
-WHO THIS IS FOR
-
-Players who want an easy way to keep their roster tidy, upload a screenshot and let the app read the text, look up units and plan builds, and optionally share the roster on stream. No command line required for normal use.
-
-GETTING STARTED (QUICK)
+### GETTING STARTED (QUICK)
 
 Download and open the latest Windows build.
 
