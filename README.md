@@ -2,8 +2,6 @@
 
 A desktop companion for Epic Seven to store your units and display them on your twitch steam.
 
-![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/EpicSevenArmory.png)
-
 ### WHAT YOU CAN DO
 
 • Unit storage — keep a personal roster of your heroes with portraits and stats.  
@@ -12,7 +10,7 @@ A desktop companion for Epic Seven to store your units and display them on your 
 • Google sign-in — log in with your Google account to keep your profile consistent.  
 • Twitch extension — let viewers browse your pvp team's stats while you stream.  
 
-[IMAGE: docs/images/roster-grid.png]
+![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/EpicSevenArmory.png)
 
 ### GETTING STARTED
 
