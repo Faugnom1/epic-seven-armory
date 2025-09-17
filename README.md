@@ -48,22 +48,20 @@ Is my Google data safe?
 
 ROADMAP / COMING SOON
 
-• SIFT Draft Matcher integration (auto-detect 4 picks + banned unit on the post-ban screen)
-• Better OCR tuned for specific screens
-• Team builder and comparisons
-• Export packs for sharing to Discord/Twitter
-
-[IMAGE: docs/images/coming-soon.png]
+• SIFT Draft Matcher integration (auto-detect 4 picks + banned unit on the post-ban screen)  
+• Better OCR tuned for specific screens  
+• Team builder and comparisons  
+• Export packs for sharing to Discord/Twitter  
 
 TROUBLESHOOTING
 
-• OCR is wrong or blank → try a clearer screenshot, avoid motion blur, set UI scale to 100%, or crop tighter around the text and retry.
-• Can’t sign in → make sure your system clock is correct and pop-ups to Google’s sign-in page aren’t blocked.
-• Twitch extension not showing → re-link your Twitch account and ensure the extension is enabled on your channel’s dashboard.
+• OCR is wrong or blank → try a clearer screenshot, avoid motion blur, set UI scale to 100%, or crop tighter around the text and retry.  
+• Can’t sign in → make sure your system clock is correct and pop-ups to Google’s sign-in page aren’t blocked.  
+• Twitch extension not showing → re-link your Twitch account and ensure the extension is enabled on your channel’s dashboard.  
 
-If you’re stuck, open an issue with a screenshot and a short description of what happened.
+If you’re stuck, open an issue with a screenshot and a short description of what happened.  
 
 FEEDBACK
 
-• Found a bug or have an idea? Open an Issue on GitHub.
-• Pull Requests are welcome—small, focused changes work best.
+• Found a bug or have an idea? Open an Issue on GitHub.  
+• Pull Requests are welcome—small, focused changes work best.  
