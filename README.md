@@ -28,11 +28,11 @@ Set up your twitch extension: Add Epic Seven Armory to your twitch extensions an
 
 ![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/Overlay.png)
 
-### Automatic Draft Detection 
+Automatic Draft Detection 
 
 ![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/SiftResults.png)
 
-### FAQ (SHORT)
+### FAQ
 
 Does OCR always get everything right?  
 • Not always; fonts and effects can confuse OCR. Click any field to edit quickly.
@@ -55,7 +55,7 @@ ROADMAP / COMING SOON
 
 [IMAGE: docs/images/coming-soon.png]
 
-TROUBLESHOOTING (QUICK)
+TROUBLESHOOTING
 
 • OCR is wrong or blank → try a clearer screenshot, avoid motion blur, set UI scale to 100%, or crop tighter around the text and retry.
 • Can’t sign in → make sure your system clock is correct and pop-ups to Google’s sign-in page aren’t blocked.
