@@ -1,18 +1,16 @@
 # Epic Seven Armory
 
-A simple desktop companion for Epic Seven to store your units, upload screenshots, and auto-read stats with OCR. Sign in with Google, look up every E7 unit, and (optionally) connect a Twitch Extension so viewers can see your roster.
+A desktop companion for Epic Seven to store your units and display them on your twitch steam.
 
 [IMAGE: docs/images/banner.png]
 
-WHAT YOU CAN DO
+## WHAT YOU CAN DO
 
 • Unit storage — keep a personal roster of your heroes with portraits and stats.
 • Upload & auto-read — drag a screenshot in; the app reads text and numbers with OCR (you can edit anything).
-• Full unit lookup — search the entire Epic Seven catalog by name, element, class, rarity, etc.
+• Full unit lookup — search the entire Epic Seven catalog by name for their element, class, rarity, skills, etc.
 • Google sign-in — log in with your Google account to keep your profile consistent.
-• Twitch extension (optional) — let chat browse your roster while you stream.
-• Screenshots & archives — save raw screenshots and cropped portraits for sharing.
-• Coming soon — link to the SIFT Draft Matcher to auto-detect your 4 picks and the banned unit on the post-ban screen.
+• Twitch extension — let viewers browse your pvp team's stats while you stream.
 
 [IMAGE: docs/images/roster-grid.png]
 
