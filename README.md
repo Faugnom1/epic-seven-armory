@@ -30,16 +30,16 @@ Set up your twitch extension: Add Epic Seven Armory to your twitch extensions an
 
 ### FAQ (SHORT)
 
-Does OCR always get everything right?
+Does OCR always get everything right?  
 • Not always; fonts and effects can confuse OCR. Click any field to edit quickly.
 
-What screenshots work best?
+What screenshots work best?  
 • Full-resolution (e.g., 1920×1080), UI scale 100%, uncompressed PNG if possible.
 
-Where do my images go?
+Where do my images go?  
 • Locally in your screenshots and hero_images folders. You control what you share.
 
-Is my Google data safe?
+Is my Google data safe?  
 • Sign-in uses Google’s standard OAuth page. The app gets a token to identify you; it never sees your password.
 
 ROADMAP / COMING SOON
