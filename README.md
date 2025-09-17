@@ -14,57 +14,31 @@ A desktop companion for Epic Seven to store your units and display them on your 
 
 [IMAGE: docs/images/roster-grid.png]
 
-### GETTING STARTED (QUICK)
+### GETTING STARTED
 
 Download and open the latest Windows build.
 
-Optional but recommended: click “Sign in with Google.” Your Google password is never shared with the app.
+Click “Sign in with Google.” Your Google password is never shared with the app.
 
-Add your units: upload screenshots (single or batch). The app will read text automatically; review and edit as needed.
+Add your units: upload screenshots or through a fribbles json export. The app will read text automatically; review and edit as needed.
 
-Search and share: use Unit Lookup to filter by name/element/class; export images or links to share.
+Search: use Unit Lookup to filter by name as see their element, class, rarity, skills, etc.
+
+Set up your twitch extension: Add Epic Seven Armory to your twitch extensions and link your account to display your units on stream.
 
 [IMAGE: docs/images/upload-flow.png]
 
-KEY FEATURES IN DETAIL
-
-Unit storage
-• Personal roster with portraits, levels, and key stats
-• Bulk add from a folder
-• Quick edit any field the OCR didn’t get perfectly
-
-Upload & decipher (OCR)
-• Uses PyTesseract to read in-game text from screenshots
-• Works best with 1920×1080 screenshots, UI scale 100%, and clear fonts
-• Re-run OCR on a crop or correct values manually
-
-Full unit lookup
-• Browse every Epic Seven unit
-• Filter by name, element, class, rarity, and role
-• Jump from lookup → add to roster → edit stats
-
-Sign in with Google
-• One-click sign-in using Google OAuth
-• The app receives a short-lived token; it never sees your password
-• You can use the app locally without signing in if you prefer
-
-Twitch extension (optional)
-• Connect your Twitch account and enable the companion extension
-• Viewers can browse your roster while you stream
-• You control what’s visible
+### Draft Detection 
 
 [IMAGE: docs/images/twitch-extension.png]
 
-FAQ (SHORT)
+### FAQ (SHORT)
 
 Does OCR always get everything right?
 • Not always; fonts and effects can confuse OCR. Click any field to edit quickly.
 
 What screenshots work best?
 • Full-resolution (e.g., 1920×1080), UI scale 100%, uncompressed PNG if possible.
-
-Do I have to log in with Google?
-• No. You can use the app locally without sign-in. Google login just keeps your profile consistent across sessions.
 
 Where do my images go?
 • Locally in your screenshots and hero_images folders. You control what you share.
@@ -78,7 +52,6 @@ ROADMAP / COMING SOON
 • Better OCR tuned for specific screens
 • Team builder and comparisons
 • Export packs for sharing to Discord/Twitter
-• Optional cloud sync
 
 [IMAGE: docs/images/coming-soon.png]
 
@@ -94,11 +67,3 @@ FEEDBACK
 
 • Found a bug or have an idea? Open an Issue on GitHub.
 • Pull Requests are welcome—small, focused changes work best.
-
-DEVELOPER NOTES (OPTIONAL)
-
-• Windows is the primary target.
-• Secrets like google_oauth.json and .env are ignored by Git—keep them local.
-• If you prefer running from source, see the developer docs in the repo for dependency lists and scripts.
-
-Enjoy, and happy hunting! 🛡️
