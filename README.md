@@ -1,14 +1,14 @@
 # Epic Seven Armory
 
-A desktop companion for Epic Seven to store your units and display them on your twitch steam.
+A desktop companion for Epic Seven to store your units and display them on your twitch steam.  
 
+• Unit upload: drag a screenshot or upload a Fribbles export. The app will read text and numbers with Optical Character Recognition.  
 • Unit storage: keep a personal roster of your heroes with portraits and stats.  
-• Upload & auto-read: drag a screenshot in; the app reads text and numbers with OCR (you can edit anything).  
-• Full unit lookup: search the entire Epic Seven catalog by name for their element, class, rarity, skills, etc.  
+• Full Hero lookup: search the entire Epic Seven catalog by name for their element, class, rarity, skills, etc.  
 • Twitch extension: let viewers browse your pvp team's stats while you stream.  
 • Google sign-in: log in with your Google account to keep your profile consistent.  
 
-![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/EpicSevenArmory.png)
+
 
 ### GETTING STARTED
 
@@ -16,15 +16,19 @@ Download and open the latest Windows build.
 
 Click “Sign in with Google.” Your Google password is never shared with the app.
 
-Add your units: upload screenshots or through a fribbles json export. The app will read text automatically; review and edit as needed.
+Add your units: upload screenshots or through a fribbles json export. The app will read text automatically. You may review and edit as needed.
+
+![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/EpicSevenArmory.png)
 
 Search: use Unit Lookup to filter by name as see their element, class, rarity, skills, etc.
 
-Set up your twitch extension: Add Epic Seven Armory to your twitch extensions and link your account to display your units on stream.
-
 ![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/Unit%20Lookup.png)
 
-### Draft Detection 
+Set up your twitch extension: Add Epic Seven Armory to your twitch extensions and link your account to display your units on stream.
+
+![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/Overlay.png)
+
+### Automatic Draft Detection 
 
 ![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/SiftResults.png)
 
