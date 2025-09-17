@@ -2,7 +2,7 @@
 
 A desktop companion for Epic Seven to store your units and display them on your twitch steam.
 
-[IMAGE: docs/images/banner.png]
+![alt text](https://github.com/Faugnom1/epic-seven-armory/blob/master/EpicSevenArmory.png)"Epic Seven Armory")
 
 ### WHAT YOU CAN DO
 
