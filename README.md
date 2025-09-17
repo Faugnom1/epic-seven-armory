@@ -26,7 +26,7 @@ Set up your twitch extension: Add Epic Seven Armory to your twitch extensions an
 
 ### Draft Detection 
 
-[IMAGE: docs/images/twitch-extension.png]
+!(https://github.com/Faugnom1/epic-seven-armory/blob/master/SiftResults.png)
 
 ### FAQ (SHORT)
 
