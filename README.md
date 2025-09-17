@@ -1,4 +1,4 @@
-Epic Seven Armory
+# Epic Seven Armory
 
 A simple desktop companion for Epic Seven to store your units, upload screenshots, and auto-read stats with OCR. Sign in with Google, look up every E7 unit, and (optionally) connect a Twitch Extension so viewers can see your roster.
 
